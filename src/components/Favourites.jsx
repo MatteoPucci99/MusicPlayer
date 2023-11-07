@@ -1,13 +1,14 @@
 import { Button, Col, Container, Row } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { deleteFavouriteAction } from "../redux/actions"
 
 
 const Favourites = ()=>{
 
     const dispatch = useDispatch()
-    const favourite = useSelector(state=> state.jobs.favourites)
-
+    const favourite = useSelector(state=> state.favourites.favourites)
+    
     return (
     <Container>
 
@@ -26,10 +27,9 @@ const Favourites = ()=>{
                 </Col>
                 <Col className="text-center">
                 <Button variant="danger" onClick={()=>{
-                    dispatch({
-                        type: 'DELETE_FAVOURITE',
-                        payload: index
-                    })
+                    dispatch(
+                        deleteFavouriteAction(index)
+                    )
                 }}>Delete</Button>
                 </Col>
 
