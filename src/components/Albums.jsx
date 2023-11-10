@@ -1,8 +1,8 @@
 import { useEffect, useState} from "react"
 import Singlealbum from "./Singlealbum"
 import { Col } from "react-bootstrap"
-import { getDeatilsAction } from "../redux/actions"
-import { useDispatch } from "react-redux"
+import { getDeatilsAction, selectedAction } from "../redux/actions"
+import { useDispatch, useSelector } from "react-redux"
 
 
 
@@ -12,6 +12,7 @@ const Albums = (props)=>{
 
 
     const [albums,setAlbums] = useState([])
+    const selected = useSelector((state)=> state.selected.selected)
     const dispatch = useDispatch()
 
     const getAlbums = ()=>{
@@ -40,6 +41,7 @@ const Albums = (props)=>{
 
     const handleClick = (singleAlbum)=>{
         dispatch(getDeatilsAction(singleAlbum))
+        dispatch(selectedAction(singleAlbum))
     }
 
     return (

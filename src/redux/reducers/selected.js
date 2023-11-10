@@ -1,7 +1,7 @@
 import { SELECTED } from "../actions";
 
 const initialState = {
-  selected: false,
+  selected: [],
 };
 
 const selectedReducer = (state = initialState, action) => {
@@ -9,7 +9,7 @@ const selectedReducer = (state = initialState, action) => {
     case SELECTED:
       return {
         ...state,
-        selected: action.payload,
+        selected: [...state.selected, action.payload],
       };
     default:
       return state;

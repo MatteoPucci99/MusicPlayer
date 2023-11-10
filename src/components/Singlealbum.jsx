@@ -1,6 +1,13 @@
 
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
+
 
 const Singlealbum = (props)=>{
+
+   
+    
+
  return (
     <div className="mt-3" onClick={props.click}>
         <div className="text-center">
@@ -9,6 +16,11 @@ const Singlealbum = (props)=>{
         <p className="text-white text-center">
         {props.album.title}
         </p>
+
+     
+        
+        
+        
     </div>
  )
 }
