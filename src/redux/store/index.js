@@ -1,8 +1,13 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import favouritesReducer from "../reducers/favourites";
+
+import searchReducer from "../reducers/search";
+import detailsReducer from "../reducers/details";
+import selectedReducer from "../reducers/selected";
 
 const myReducer = combineReducers({
-  favourites: favouritesReducer,
+  search: searchReducer,
+  details: detailsReducer,
+  selected: selectedReducer,
 });
 
 const store = configureStore({

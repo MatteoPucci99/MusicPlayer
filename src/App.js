@@ -1,19 +1,40 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import MainSearch from "./components/MainSearch";
-import CompanySearchResults from "./components/CompanySearchResults";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Favourites from "./components/Favourites";
+import { Container, Row, Col } from "react-bootstrap";
+import Sidebar from "./components/Sidebar";
+import React from "react";
+import "./startAssets/style.css";
+import Mainlinks from "./components/Mainlinks";
+import Albums from "./components/Albums";
+import Searchsection from "./components/Searchsection";
+import PlayerControls from "./components/Playcontrols";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/favourites" element={<Favourites />} />
-        <Route path="/" element={<MainSearch />} />
-        <Route path="/:company" element={<CompanySearchResults />} />
-      </Routes>
-    </BrowserRouter>
+    <Container fluid>
+      <Row>
+        <Col className="d-none d-md-block col-md-2">
+          <Sidebar />
+        </Col>
+        <Col>
+          <Mainlinks />
+          <Searchsection />
+          <Row className="mt-5">
+            <h1 className="text-white">Rock classic</h1>
+            <Albums query="rock" />
+          </Row>
+          <Row className="mt-3">
+            <h1 className="text-white">Pop culture</h1>
+            <Albums query="pop culture" />
+          </Row>
+          <Row className="mt-3">
+            <h1 className="text-white">Hip hop</h1>
+            <Albums query="hiphop" />
+          </Row>
+          <PlayerControls />
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

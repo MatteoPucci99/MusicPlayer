@@ -1,16 +1,26 @@
-export const ADD_TO_FAVOURITES = "ADD_TO_FAVOURITES";
-export const DELETE_FAVOURITE = "DELETE_FAVOURITE";
+export const SEARCH = "SEARCH";
 
-export const addToFavouritesAction = (job) => {
+export const GET_DETAILS = "GET_DETAILS";
+
+export const SELECTED = "SELECTED";
+
+export const getDeatilsAction = (details) => {
   return {
-    type: ADD_TO_FAVOURITES,
-    payload: job,
+    type: GET_DETAILS,
+    payload: details,
   };
 };
 
-export const deleteFavouriteAction = (index) => {
+export const searchAlbumAction = (album) => {
   return {
-    type: DELETE_FAVOURITE,
-    payload: index,
+    type: SEARCH,
+    payload: album,
+  };
+};
+
+export const selectedAction = (album) => {
+  return {
+    type: SELECTED,
+    payload: album,
   };
 };
